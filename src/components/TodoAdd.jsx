@@ -20,6 +20,9 @@ function TodoAdd({ Heading , HandelTask}) {
           className="form-control w-50 mx-auto"
           id="floatingInput"
           placeholder="Add your new todo"
+          required
+          minLength={3}
+          maxLength={30}
         />
       </div>
       <button type="submit" className="btn btn-outline-primary m-3 p-2">Add Todo</button>
