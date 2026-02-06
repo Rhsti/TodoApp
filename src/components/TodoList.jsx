@@ -6,27 +6,32 @@ function TodoList({Heading, tasks, Delete, ToggleComplete}) {
   
   return (
    <>
-   <h2 className='h2 text-center'>{Heading}</h2>
-   <ul className="list-group mt-3 w-50  mx-auto">
+   <h2 className='h2 text-center mt-4 mt-md-5'>{Heading}</h2>
+   <div className="row justify-content-center mt-3">
+     <div className="col-12 col-sm-11 col-md-10 col-lg-8 col-xl-6">
+       <ul className="list-group">
 {tasks.map((task) => (
-      <li className="list-group-item mt-3" key={task.id}>
-        <span style={task.completed ? {textDecoration: 'line-through'} : {}}>
+      <li className="list-group-item d-flex align-items-center justify-content-between py-2 py-md-3" key={task.id}>
+        <span className="flex-grow-1 text-truncate" style={task.completed ? {textDecoration: 'line-through'} : {}}>
           {task.text}
         </span>
-         <button onClick={() => Delete(task.id)} 
-        className='btn btn-outline-danger float-end mt-3'>Delete</button>
-        <button  onClick={() => ToggleComplete(task.id)} 
-        className='btn btn-sm ms-2 float-end mt-3' style={{background: 'none', border: 'none'}}>
-          {task.completed ? 
-            <span><RiCheckboxCircleFill color='green' fontSize={30}/></span> 
-          : 
-            <span><RiCheckboxBlankCircleLine color='green' fontSize={30}/></span> 
-          }
-        </button>
-        
+        <div className="d-flex gap-2 ms-2 flex-shrink-0">
+          <button  onClick={() => ToggleComplete(task.id)} 
+          className='btn btn-sm p-0' style={{background: 'none', border: 'none'}}>
+            {task.completed ? 
+              <span><RiCheckboxCircleFill color='green' fontSize={24}/></span> 
+            : 
+              <span><RiCheckboxBlankCircleLine color='green' fontSize={24}/></span> 
+            }
+          </button>
+          <button onClick={() => Delete(task.id)} 
+          className='btn btn-outline-danger btn-sm'>Delete</button>
+        </div>
       </li>
 ))}
-  </ul>
+       </ul>
+     </div>
+   </div>
    </>
   )
 }

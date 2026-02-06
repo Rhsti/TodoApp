@@ -30,19 +30,23 @@ function App() {
   function heading(){
     if( 7 > 12){
       return 'Good Morning'
-    }else if( 12 > 18){
+    }else if( 12 < 18){
       return 'Good Afternoon'
-    }else if (18 <= 23){
+    }else if (18 < 23){
       return 'Good Evening' 
   }else{
       return 'Good Night'
     }
   }
   return (
-    <div className='container'>
-      <TodoAdd Heading={heading()} HandelTask={HandelTask}/>
-      <TodoList tasks={task} Heading='Todo List'
-       Delete={DeleteTask} ToggleComplete={ToggleComplete}/>
+    <div className='container-fluid py-3 py-md-4 py-lg-5'>
+      <div className='row'>
+        <div className='col-12'>
+          <TodoAdd Heading={heading()} HandelTask={HandelTask}/>
+          <TodoList tasks={task} Heading='Todo List'
+           Delete={DeleteTask} ToggleComplete={ToggleComplete}/>
+        </div>
+      </div>
     </div>
   )
 }

@@ -10,22 +10,27 @@ function TodoAdd({ Heading , HandelTask}) {
  }
   return (
     <>
-      <h1 className="h1 pb-4 mt-5 text-center">{Heading}</h1>
+      <h1 className="h1 pb-3 pb-md-4 mt-4 mt-md-5 text-center">{Heading}</h1>
      <form onSubmit={HandelInput} className="text-center">
-       <div className="form-floating mb-3">
-        <input
-          type="text"
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          className="form-control w-50 mx-auto"
-          id="floatingInput"
-          placeholder="Add your new todo"
-          required
-          minLength={3}
-          maxLength={30}
-        />
-      </div>
-      <button type="submit" className="btn btn-outline-primary m-3 p-2">Add Todo</button>
+       <div className="row justify-content-center mb-3">
+        <div className="col-12 col-sm-10 col-md-8 col-lg-6">
+          <div className="form-floating">
+            <input
+              type="text"
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              className="form-control"
+              id="floatingInput"
+              placeholder="Add your new todo"
+              required
+              minLength={3}
+              maxLength={30}
+            />
+            <label htmlFor="floatingInput">Add your new todo</label>
+          </div>
+        </div>
+       </div>
+      <button type="submit" className="btn btn-outline-primary m-2 m-md-3 px-3 px-md-4">Add Todo</button>
      </form>
 
     </>
